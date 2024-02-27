@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="text" id="mi1">
+    <select id="sec">
+        <option value="start">Withstart</option>
+        <option value="end">Endstart</option>
+        <option value="con">Contains</option>
+    </select>
+
+    <button onclick="abc()">Search</button>
+
+    <ul id="display"></ul>
+
+
+    <script>
+          let citys = ["godhra", "vadodara", "surat", "rajkot", "vapi", "valshad", "ratanpur"];
+
+          function xyz(){
+            for (let i = 0; i< citys.length; i++) {
+
+                document.getElementById("display").innerHTML += `<li>${citys[i]}</li>`   
+            }
+          }
+          xyz();
+
+    function abc() {
+        let cell = document.getElementById("mi1").value;
+        let pool = document.getElementById("sec").value;
+
+        document.getElementById("display").innerHTML = " ";
+
+        for (let j = 0; j<citys.length; j++) {
+
+          
+            if( (citys[j].indexOf(cell) ==0) &&  pool=="start"){
+
+                document.getElementById("display").innerHTML += `<li>${citys[j]}</li>`;
+
+            }
+            else if((citys[j].slice(-1) ==cell) && pool=="end"){
+                document.getElementById("display").innerHTML += `<li>${citys[j]}</li>`;
+            }
+            else if((citys[j].indexOf(cell) >=0) && pool =="con"){
+                document.getElementById("display").innerHTML += `<li>${citys[j]}</li>`;
+            }
+            
+        }
+    }
+
+
+    </script>
+    
+
+
+
+
+</body>
+</html>
